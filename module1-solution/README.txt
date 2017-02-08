@@ -1,0 +1,1 @@
+Assignment for Module 1 of the Single Page Web Applications With AngularJS course form Coursera.

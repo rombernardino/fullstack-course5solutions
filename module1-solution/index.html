@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+  </head>
+<body ng-app="LunchChecker" ng-controller="LunchCheckerCtrl">
+   <div class="container">
+     <h1>Lunch Checker</h1>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+                <input id="lunch-menu" type="text" placeholder="list comma separated dishes you usually have for lunch" class="form-control" ng-model="lunchString">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default" ng-click="checkIfTooMuch(lunchString)">Check If Too Much</button>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="alert alert-warning" role="alert">
+              <p>Empty items and only commas doesn't count for the check, like "item 1, item2, , item 3" or "item 1, item2,,item 3", for example.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group message">
+              <!-- Your message can go here. -->
+              <div ng-if="count == 0" class="alert alert-danger" role="alert">
+                <span ng-bind="message"></span>
+              </div>
+              <div ng-if="count" class="alert alert-success" role="alert">
+               <span ng-bind="message"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+   </div>
+</body>
+</html>
